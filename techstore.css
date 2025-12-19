@@ -1,0 +1,158 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* HEADER */
+.app-header {
+  height: 70px;
+  background-color: #000000;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Menu icon */
+.menu-btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #f8fafc;
+  cursor: pointer;
+}
+
+/* Logo */
+.logo {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+/* LAYOUT */
+.app-layout {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  background-color: #020617;
+  border-right: 1px solid #1e293b;
+  padding-top: 20px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-link {
+  padding: 12px 20px;
+  color: #cbd5f5;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+.nav-link.active {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8fafc;
+  overflow-y: auto;
+}
+
+/* SECTIONS */
+.section {
+  display: none;
+}
+
+.section.active-section {
+  display: block;
+}
+
+.section h2 {
+  margin-bottom: 10px;
+}
+
+/* Sidebar hidden state */
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+/* Smooth animation */
+.sidebar {
+  transition: transform 0.3s ease;
+}
+
+/* Main full width when sidebar hidden */
+.main-content.full {
+  margin-left: 0;
+}
+.product-form {
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+}
+
+button[type="submit"] {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+#product-form {
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+#product-form div {
+  margin-bottom: 12px;
+}
+
+#product-list .product-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
