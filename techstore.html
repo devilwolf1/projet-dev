@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechStore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="techstore.css">
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <header class="app-header">
   <div class="header-left">
     <button class="menu-btn">☰</button>
-    <img src="701154b4-0682-4365-bae1-d52598d6ae29.png" class="logo">
     <h1 class="brand-name">ApekaMode</h1>
   </div>
 </header>
 
+<!-- ================= LAYOUT ================= -->
 <div class="app-layout">
 
+  <!-- ================= SIDEBAR ================= -->
   <aside class="sidebar">
     <nav class="sidebar-nav">
       <a href="#" class="nav-link active" data-section="dashboard">Dashboard</a>
@@ -27,49 +31,99 @@
     </nav>
   </aside>
 
+  <!-- ================= MAIN CONTENT ================= -->
   <main class="main-content">
 
-    <section id="dashboard" class="section">
+    <!-- ================= DASHBOARD ================= -->
+    <section id="dashboard" class="section active-section">
       <h2>Dashboard</h2>
+
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div id="kpi-total" class="kpi-value">0</div>
+          <div class="kpi-label">Total produits</div>
+        </div>
+
+        <div class="kpi-card">
+          <div id="kpi-stock" class="kpi-value">0</div>
+          <div class="kpi-label">Stock total</div>
+        </div>
+
+        <div class="kpi-card">
+          <div id="kpi-avg" class="kpi-value">0</div>
+          <div class="kpi-label">Prix moyen</div>
+        </div>
+      </div>
+
+      <canvas id="productsChart" height="140"></canvas>
+      <canvas id="stockDonutChart" height="80" style="margin-top:40px;"></canvas>
+
+     
+
     </section>
 
-    <section id="products" class="section active-section">
+    <!-- ================= PRODUITS ================= -->
+    <section id="products" class="section">
       <h2>Produits</h2>
 
+      <!-- ===== FORMULAIRE CRUD LOCAL ===== -->
       <form id="product-form" class="product-form">
-        <div class="form-group">
-          <label>Nom</label>
-          <input type="text" id="name" required>
-        </div>
+        <input type="hidden" id="edit-id">
 
-        <div class="form-group">
-          <label>Prix</label>
-          <input type="number" id="price" required>
-        </div>
+        <input id="name" type="text" placeholder="Nom du produit" required>
+        <input id="price" type="number" placeholder="Prix" required>
+        <input id="quantity" type="number" placeholder="Quantité" required>
+        <textarea id="description" placeholder="Description"></textarea>
 
-        <div class="form-group">
-          <label>Quantité</label>
-          <input type="number" id="quantity" required>
-        </div>
-
-        <div class="form-group">
-          <label>Description</label>
-          <textarea id="description"></textarea>
-        </div>
-
-        <button type="submit">Ajouter</button>
+        <button type="submit">Enregistrer</button>
       </form>
 
-      <div id="product-list"></div>
+      <!-- ===== PRODUITS LOCAUX ===== -->
+      <h3>Produits locaux</h3>
+      <input
+        type="text"
+        id="search-local"
+        placeholder="Rechercher un produit local"
+        style="margin-bottom:16px; padding:10px; width:100%; max-width:400px;"
+      >
+
+      <div id="product-list" class="grid-list"></div>
+
+      <!-- ===== PRODUITS API ===== -->
+      <h3 style="margin-top:40px;">Produits API (FakeStore)</h3>
+      <input
+        type="text"
+        id="api-search"
+        placeholder="Rechercher dans l’API"
+        style="margin-bottom:16px; padding:10px; width:100%; max-width:400px;"
+      >
+
+      <div id="api-products" class="grid-list"></div>
     </section>
 
+    <!-- ================= CATEGORIES ================= -->
     <section id="categories" class="section">
       <h2>Catégories</h2>
+
+      <form id="category-form" class="product-form">
+        <input
+          type="text"
+          id="category-name"
+          placeholder="Nom de la catégorie"
+          required
+        >
+        <button type="submit">Ajouter catégorie</button>
+      </form>
+
+      <div id="category-list"></div>
     </section>
 
   </main>
 </div>
 
+<!-- ================= LIBRARIES ================= -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="techstore.js"></script>
+
 </body>
 </html>
